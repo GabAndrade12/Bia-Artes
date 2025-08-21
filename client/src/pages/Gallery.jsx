@@ -1,12 +1,45 @@
-import React from "react";
+import React, {useState, useEffect} from 'react';
+import ProductCard from '../components/ProductCard';
 
-function Gallery() {
+function Gallery(){
+    const [products, setProducts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/api/products');
+                if(!response.ok){
+                    throw new Error('Erro ao carregar os produtos');
+                }
+                const data = await response.json();
+                setProducts(data);
+                setIsLoading(false);
+            } catch (error){
+                console.error('Falha ao buscar produtos', error);
+                setIsLoading(false);
+            }
+        };
+
+        fetchProducts();
+    }, []);
+
+    if (isLoading){
+        return <p>Carregando produtos...</p>;
+    }
+
     return (
         <section className="gallery-section">
-            <h2>Nossos Produtos</h2>
+            <h2>Nossos produtos</h2>
             <div className="product-list">
-                {/* Aqui iremos colocar os cartões de produtos no futuro */}
-                <p>Em breve, nossos incríveis produtos de croche estarão aqui</p>
+                {products.map(product => (
+                    <ProductCard 
+                        key={product.id}
+                        name={product.name}
+                        price={product.price}
+                    
+                    />
+                ))}
             </div>
         </section>
     )

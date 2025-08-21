@@ -1,0 +1,14 @@
+# Dependências do Node
+/client/node_modules/
+/server/node_modules/
+
+# Arquivos de ambiente
+.env
+.env.local
+
+# Builds
+/client/dist/
+
+# Logs e outros
+npm-debug.log
+.DS_Store

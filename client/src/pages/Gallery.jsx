@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import ProductCard from '../components/ProductCard';
+import CategoryFilter from '../components/CategoryFilter'
 
 function Gallery(){
     const [products, setProducts] = useState([]);
@@ -30,6 +31,7 @@ function Gallery(){
 
     return (
         <section className="gallery-section">
+            <CategoryFilter />
             <h2>Nossos produtos</h2>
             <div className="product-list">
                 {products.map(product => (
@@ -37,7 +39,7 @@ function Gallery(){
                         key={product.id}
                         name={product.name}
                         price={product.price}
-                    
+                        image={product.image}
                     />
                 ))}
             </div>

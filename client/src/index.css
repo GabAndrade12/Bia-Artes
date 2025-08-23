@@ -71,3 +71,40 @@ body {
   color: #ffffff;
   margin-top: 2rem;
 }
+
+/* Estilos para a seção de Galeria */
+.gallery-section {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.gallery-section h2{
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.product-list{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.testimonials-section{
+  padding: 3rem 2rem;
+  background-color: #fafafa;
+  text-align: center;
+}
+
+.testimonials-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.testimonials-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
